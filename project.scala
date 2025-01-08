@@ -1,5 +1,5 @@
 //> using scala 3.6.2
-//> using dep org.scalameta::munit:1.0.2
+//> using dep org.scalameta::munit:1.0.4
 //> using option -Xmax-inlines 128
 //> using option -experimental
 //> using publish.organization "org.encalmo"

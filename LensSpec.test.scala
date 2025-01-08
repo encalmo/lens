@@ -64,7 +64,7 @@ class LensSpec extends munit.FunSuite {
   case class Person(firstName: String, lastName: String, address: Address)
   case class Address(street1: String, street2: Option[String] = None, postcode: String, town: String, country: String)
 
-  test("Lens should update value using lenses") {
+  test("Lens should set and update value using lenses") {
     val townLens = Lens[Person].address.town
     val mike = Person("Mike", "Hart", Address("1 Abbey Road", None, "BN15 KJ", "Exeter", "United Kingdom"))
     val mike2 = townLens.set(mike)("Derby")
@@ -74,7 +74,7 @@ class LensSpec extends munit.FunSuite {
     assertEquals(mike2.address.town, "Derby")
   }
 
-  test("Lens should update value using lenses") {
+  test("Lens should set value using set function from the lenses") {
     val setTown: Person => String => Person = Lens[Person].address.town.set
     val mike = Person("Mike", "Hart", Address("1 Abbey Road", None, "BN15 KJ", "Exeter", "United Kingdom"))
     val mike2 = setTown(mike)("Derby")

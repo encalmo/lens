@@ -14,7 +14,7 @@ Scala library providing Lens[R,V] typeclass derivation.
     val mike = Person("Mike","Hart", Address("1 Abbey Road", None, "BN15 KJ", "Exeter", "United Kingdom"))
 
     val town =  townLens.get(mike)
-    townLens.set(mike,"Derby")
+    townLens.set(mike)("Derby")
     townLens.update(mike, town => town.toUpperCase())
 
 ```
