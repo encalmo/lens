@@ -44,7 +44,10 @@ object LensMacro {
         Symbol.newMethod(
           cls,
           "set",
-          MethodType(List("root", "value"))(_ => List(TypeRepr.of[R], TypeRepr.of[X]), _ => TypeRepr.of[R]),
+          MethodType(List("root"))(
+            _ => List(TypeRepr.of[R]),
+            _ => MethodType(List("value"))(_ => List(TypeRepr.of[X]), _ => TypeRepr.of[R])
+          ),
           Flags.Override & Flags.Inline,
           Symbol.noSymbol
         ),
@@ -66,7 +69,7 @@ object LensMacro {
     val funcSetDef = DefDef(
       funcSetSym,
       {
-        case List(List(root @ Ident("root"), value @ Ident("value"))) =>
+        case List(List(root @ Ident("root")), List(value @ Ident("value"))) =>
           val target = Expr.betaReduce('{ $get(${ root.asExprOf[R] }) }).asTerm
           val args = fields.map(s =>
             if s.name == name.valueOrAbort

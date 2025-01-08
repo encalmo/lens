@@ -34,21 +34,21 @@ class LensSpec extends munit.FunSuite {
   }
 
   test("Lens should set value using lenses") {
-    assertEquals(lens2.set(sample, TestCase2(faz = "zaf", zaz = 8)).foo.faz, "zaf")
+    assertEquals(lens2.set(sample)(TestCase2(faz = "zaf", zaz = 8)).foo.faz, "zaf")
     assertEquals(
-      lens2.set(sample, TestCase2(faz = "zaf", zaz = 8)),
+      lens2.set(sample)(TestCase2(faz = "zaf", zaz = 8)),
       TestCase1(
         foo = TestCase2(faz = "zaf", zaz = 8),
         bar = 1,
         zoo = "Zoo"
       )
     )
-    assertEquals(lens3.set(sample, "zaf").foo.faz, "zaf")
-    assertEquals(lens4.set(sample, 99).foo.zaz, 99)
-    assertEquals(lens5.set(sample, 2).bar, 2)
-    assertEquals(lens6.set(sample, "Hello").zoo, "Hello")
-    assertEquals(lens7.set(sample, None).opt, None)
-    assertEquals(lens8.set(sample, Some(TestCase3(true))).foo.opt2.map(_.tas), Some(true))
+    assertEquals(lens3.set(sample)("zaf").foo.faz, "zaf")
+    assertEquals(lens4.set(sample)(99).foo.zaz, 99)
+    assertEquals(lens5.set(sample)(2).bar, 2)
+    assertEquals(lens6.set(sample)("Hello").zoo, "Hello")
+    assertEquals(lens7.set(sample)(None).opt, None)
+    assertEquals(lens8.set(sample)(Some(TestCase3(true))).foo.opt2.map(_.tas), Some(true))
   }
 
   test("Lens should update value using lenses") {
@@ -67,7 +67,7 @@ class LensSpec extends munit.FunSuite {
   test("Lens should update value using lenses") {
     val townLens = Lens[Person].address.town
     val mike = Person("Mike", "Hart", Address("1 Abbey Road", None, "BN15 KJ", "Exeter", "United Kingdom"))
-    val mike2 = townLens.set(mike, "Derby")
+    val mike2 = townLens.set(mike)("Derby")
     val town = townLens.get(mike)
     assertEquals(town, "Exeter")
     townLens.update(mike, town => town.toUpperCase())
@@ -75,9 +75,9 @@ class LensSpec extends munit.FunSuite {
   }
 
   test("Lens should update value using lenses") {
-    val setTown: (Person, String) => Person = Lens[Person].address.town.set
+    val setTown: Person => String => Person = Lens[Person].address.town.set
     val mike = Person("Mike", "Hart", Address("1 Abbey Road", None, "BN15 KJ", "Exeter", "United Kingdom"))
-    val mike2 = setTown(mike, "Derby")
+    val mike2 = setTown(mike)("Derby")
     assertEquals(mike2.address.town, "Derby")
   }
 
