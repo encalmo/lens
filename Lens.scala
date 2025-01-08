@@ -6,7 +6,7 @@ import scala.compiletime.*
 /** Lens typeclass provides set of functions to retrieve and update potentially deeply-nested property of an object. */
 trait Lens[R, V] {
   def get(root: R): V
-  def set(root: R, value: V): R
+  def set(root: R)(value: V): R
   def update(root: R, update: V => V): R
 }
 
@@ -38,9 +38,9 @@ object Lens {
       inline erasedValue[X] match {
         case _: Unit => error(s"$name is not a valid property name")
         case _: Product =>
-          LensMacro.createLens[R, V, X & Product, AdjustableLens[R, V, X & Product]](name, get, set)
+          LensMacro.createLens[R, V, X & Product, AdjustableLens[R, V, X & Product]](name, get, Function.uncurried(set))
         case _ =>
-          LensMacro.createLens[R, V, X, FixedLens[R, V, X]](name, get, set)
+          LensMacro.createLens[R, V, X, FixedLens[R, V, X]](name, get, Function.uncurried(set))
       }
   }
 
