@@ -10,7 +10,7 @@ Use with SBT
 
 or with SCALA-CLI
 
-    //> using dep org.encalmo::graphs:0.9.0
+    //> using dep org.encalmo::lens:0.9.0
 
 ## Examples
 
