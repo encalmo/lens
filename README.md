@@ -1,8 +1,18 @@
 # lens
+
 Scala library providing Lens[R,V] typeclass derivation.
 
-
 ## Usage
+
+Use with SBT
+
+    libraryDependencies += "org.encalmo" % "lens_3" % "0.9.0"
+
+or with SCALA-CLI
+
+    //> using dep org.encalmo::graphs:0.9.0
+
+## Examples
 
 ```scala
 
