@@ -1,4 +1,5 @@
 //> using scala 3.6.2
+//> using exclude scripts
 //> using test.dep org.scalameta::munit:1.1.0
 //> using option -Xmax-inlines 128
 //> using option -experimental
