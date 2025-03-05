@@ -1,3 +1,5 @@
+![Maven Central Version](https://img.shields.io/maven-central/v/org.encalmo/lens_3?style=for-the-badge)
+
 # lens
 
 Scala library providing Lens[R,V] typeclass derivation.
