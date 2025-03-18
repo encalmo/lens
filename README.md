@@ -1,4 +1,4 @@
-![Maven Central Version](https://img.shields.io/maven-central/v/org.encalmo/lens_3?style=for-the-badge)
+<a href="https://github.com/encalmo/lens">![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)</a> <a href="https://central.sonatype.com/artifact/org.encalmo/lens_3" target="_blank">![Maven Central Version](https://img.shields.io/maven-central/v/org.encalmo/lens_3?style=for-the-badge)</a> <a href="https://encalmo.github.io/lens/scaladoc/org/encalmo/lens.html" target="_blank"><img alt="Scaladoc" src="https://img.shields.io/badge/docs-scaladoc-red?style=for-the-badge"></a>
 
 # lens
 
