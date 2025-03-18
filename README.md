@@ -6,6 +6,8 @@ Scala library providing Lens[R,V] typeclass derivation.
 
 ## Dependencies
 
+   - [Scala](https://www.scala-lang.org/) >= 3.6.2
+
 ## Usage
 
 Use with SBT
@@ -14,7 +16,7 @@ Use with SBT
 
 or with SCALA-CLI
 
-    //> using dep org.encalmo::lens:0.9.0
+    //> using dep org.encalmo::lens:0.9.2
 
 ## Examples
 
