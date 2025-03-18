@@ -4,6 +4,8 @@
 
 Scala library providing Lens[R,V] typeclass derivation.
 
+## Dependencies
+
 ## Usage
 
 Use with SBT
