@@ -4,9 +4,15 @@
 
 Scala library providing Lens[R,V] typeclass derivation.
 
+## Table of contents
+
+- [Dependencies](#dependencies)
+- [Usage](#usage)
+- [Examples](#examples)
+
 ## Dependencies
 
-   - [Scala](https://www.scala-lang.org/) >= 3.6.2
+   - [Scala](https://www.scala-lang.org) >= 3.6.2
 
 ## Usage
 
@@ -33,4 +39,25 @@ or with SCALA-CLI
     townLens.set(mike)("Derby")
     townLens.update(mike, town => town.toUpperCase())
 
+```
+
+
+## Project content
+
+```
+├── .github
+│   └── workflows
+│       ├── pages.yaml
+│       ├── release.yaml
+│       └── test.yaml
+│
+├── .gitignore
+├── .scalafmt.conf
+├── Lens.scala
+├── LensMacro.scala
+├── LensSpec.test.scala
+├── LICENSE
+├── project.scala
+├── README.md
+└── test.sh
 ```
